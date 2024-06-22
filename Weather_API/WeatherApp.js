@@ -24,19 +24,19 @@ async function checkweather(city){
 
 
     if(data.weather[0].main == "Clouds"){
-        weatherIcon.src = "../Project_IMG/weather-app-img/images/clouds.png"
+        weatherIcon.src = "../images/clouds.png"
     }
    else if(data.weather[0].main == "Clear"){
-        weatherIcon.src = "../Project_IMG/weather-app-img/images/clear.png"
+        weatherIcon.src = "../images/clear.png"
     }
    else if(data.weather[0].main == "Rain"){
-        weatherIcon.src = "../Project_IMG/weather-app-img/images/rain.png"
+        weatherIcon.src = "../images/rain.png"
     }
    else if(data.weather[0].main == "Drizzle"){
-        weatherIcon.src = "../Project_IMG/weather-app-img/images/drizzle.png"
+        weatherIcon.src = "../images/drizzle.png"
     }
    else if(data.weather[0].main == "Mist"){
-        weatherIcon.src = "../Project_IMG/weather-app-img/images/mist.png"
+        weatherIcon.src = "../images/mist.png"
     }
     document.querySelector(".weather").style.display = "block";
     document.querySelector(".error").style.display = "none";
@@ -49,3 +49,5 @@ searchBtn.addEventListener("click" , ()=>{
 
     checkweather(searchBox.value); 
 })
+
+
