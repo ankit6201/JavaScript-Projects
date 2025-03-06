@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        /* .contaners{
+            margin: auto;
+        } */
+        .conatiner1{
+            width: 50%;
+            height: 40vh;
+            /* margin: auto; */
+            position: absolute;
+            top: 20%;
+            left: 25%;
+            border: 1px solid #ddd;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 5%;
+            background: #fff;
+            /* justify-content:center; */
+        }
+        #formInput{
+            display: flex;
+            gap: 50px;
+            margin: -20px;
+            margin-bottom:10px ;
+        }
+        #formInput input{
+           width: 240px; 
+            padding: 10px;
+            border: none;
+            outline: none;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        #btn{
+            padding: 10px 20px;
+            background-color: blue;
+            color: white;
+            border: none;
+            border-radius: 9px;
+            cursor: pointer;
+            /* margin-left: 10px; */
+        }
+        #btn:hover{
+            background-color: #000;
+        }
+        #data1{
+            width: 110%;
+            height: 80%;
+            overflow-y: auto; ;/* Enables scrolling */
+            padding: 45px;
+            border: 1px solid #ccc;
+            outline: none;
+            border-radius: 15px;
+            background: #f9f9f9;
+
+        }
+        .deta4{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            
+         
+           
+        }
+        .deta ul{
+            width: 100%;
+            list-style: none;
+            display: flex;
+            margin-top: 10px;
+
+        }
+        .deta ul li{
+          width: 50%;
+            margin: 0 50px;
+            /* margin-top: 5px; */
+            /* padding: 23px; */
+        }
+        #remove{
+            width: 15%;
+            height: 20%;
+            position: relative;
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="contaners">
+    <div class="conatiner1">
+    <div id="formInput">
+        <input type="text" id="username" placeholder="Enter The UserName">
+        <input type="date" id="date">
+        <button id="btn">Submit</button>
+    </div>
+     <div class="deta" id="data1"></div>
+    </div>
+</div>
+          
+    <script>
+
+        function addData(username, date){
+            
+             
+            const task = document.createElement('div');
+            task.classList.add('deta4');
+            task.innerHTML =`
+            <ul>
+            <li>${username} </li>
+            <li>${date}</li>
+            </ul>
+            <button id="remove">Delete</button>
+            `;
+            return task;
+        }
+
+
+        document.getElementById('btn').addEventListener('click',(e)=>{
+            e.preventDefault();
+            const userName = document.getElementById('username').value;
+            const date = document.getElementById('date').value;
+            const mybtn = document.getElementById('remove');
+            if (!userName  || !date) {
+                alert('Please Enter The UserName and Date');
+                return;
+            }
+          const mydiv = document.getElementById('data1');
+          const val =  addData(userName, date);
+            mydiv.appendChild(val);
+            
+            document.getElementById('username').value = "";
+            document.getElementById('date').value = "";
+
+        })
+
+        document.getElementById('data1').addEventListener('click',(e)=>{
+            if(e.target.id==='remove'){
+                e.target.parentElement.remove();
+            }
+        })
+    </script>
+</body>
+</html>
